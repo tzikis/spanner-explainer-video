@@ -1,7 +1,7 @@
 
 import sys
 import time
-from Testboard import Testboard
+from SpannerTestboard import SpannerTestboard
 
 import http.client, urllib.parse
 import json
