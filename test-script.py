@@ -1,7 +1,6 @@
 
 import sys
 import time
-import Spanner
 from Testboard import Testboard
 
 import http.client, urllib.parse
