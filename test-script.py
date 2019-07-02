@@ -29,8 +29,8 @@ def turn_device_off():
     testboard.digitalWrite(RELAY_PIN, 'LOW')
     print ("++++        Done        ++++")
 
-def testDeviceOnThenOff():
+def testDevice():
     turn_device_on()
-    time.sleep(30)
+    time.sleep(5)
     turn_device_off()
     assert True
