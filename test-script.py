@@ -8,7 +8,7 @@ import json
 
 from random import randint
 
-testboard = Testboard("Testboard1")
+testboard = SpannerTestboard("Testboard1")
 
 OUTPUT_PIN = "D3"
 
