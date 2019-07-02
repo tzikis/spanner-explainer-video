@@ -34,4 +34,4 @@ def testDeviceOnThenOff:
     turn_device_on()
     time.sleep(30)
     turn_device_off()
-
+    assert True
