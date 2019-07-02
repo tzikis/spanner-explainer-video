@@ -1,0 +1,2 @@
+testing:
+    script: 'pytest -s --verbose "test-script.py"'
