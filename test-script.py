@@ -58,10 +58,30 @@ def turn_device_off():
 
 def testDevice():
     turn_device_on()
-    time.sleep(15) # Wait for the device to connect to the Wifi
+    time.sleep(15) # Wait for the lamp to connect to the Wifi
+
     set_lamp_color("ff000000") # Make the lamp Red
+    assert testboard.analogRead(INPUT_PIN_RED) > 3000	# Red LED should be ON
+    assert testboard.analogRead(INPUT_PIN_GREEN) < 1000	# Green LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_BLUE) < 1000	# Blue LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_WHITE) < 1000	# White LED should be OFF
+
     set_lamp_color("00ff0000") # Make the lamp Green
+    assert testboard.analogRead(INPUT_PIN_RED) < 1000	# Red LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_GREEN) > 3000	# Green LED should be ON
+    assert testboard.analogRead(INPUT_PIN_BLUE) < 1000	# Blue LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_WHITE) < 1000	# White LED should be OFF
+
     set_lamp_color("0000ff00") # Make the lamp Blue
+    assert testboard.analogRead(INPUT_PIN_RED) < 1000	# Red LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_GREEN) < 1000	# Green LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_BLUE) > 3000	# Blue LED should be ON
+    assert testboard.analogRead(INPUT_PIN_WHITE) < 1000	# White LED should be OFF
+
     set_lamp_color("000000ff") # Make the lamp White
+    assert testboard.analogRead(INPUT_PIN_RED) < 1000	# Red LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_GREEN) < 1000	# Green LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_BLUE) < 1000	# Blue LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_WHITE) > 3000	# White LED should be ON
+
     turn_device_off()
-    assert True
