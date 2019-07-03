@@ -37,7 +37,7 @@ def send_cmd(command, value):
     json_obj = json.loads(response)
     return json_obj["return_value"]
 
-def setLampColor(color):
+def set_lamp_color(color):
     print("$$$$ Setting Device Color $$$$")
     print("New Color: " + color)
     return_code = send_cmd("setColor", color)
@@ -58,9 +58,9 @@ def turn_device_off():
 def testDevice():
     turn_device_on()
     time.sleep(15) // Wait for the device to connect to the Wifi
-    setLampColor("ff000000") //Make the lamp Red
-    setLampColor("00ff0000") //Make the lamp Blue
-    setLampColor("0000ff00") //Make the lamp Green
-    setLampColor("000000ff") //Make the lamp White
+    set_lamp_color("ff000000") //Make the lamp Red
+    set_lamp_color("00ff0000") //Make the lamp Blue
+    set_lamp_color("0000ff00") //Make the lamp Green
+    set_lamp_color("000000ff") //Make the lamp White
     turn_device_off()
     assert True

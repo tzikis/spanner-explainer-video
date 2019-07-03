@@ -1,4 +1,4 @@
 testing:
     script: 'pytest -s --verbose "test-script.py"'
     env_vars:
-    - $device_id
+      - $device_id
