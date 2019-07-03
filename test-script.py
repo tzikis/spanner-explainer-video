@@ -1,5 +1,6 @@
 
 import sys
+import os
 import time
 from SpannerTestboard import SpannerTestboard
 
@@ -9,6 +10,7 @@ import json
 from random import randint
 
 testboard = SpannerTestboard("Testboard1")
+device_id = os.environ['device_id']
 
 OUTPUT_PIN = "D3"
 
