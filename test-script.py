@@ -56,6 +56,13 @@ def turn_device_off():
     testboard.digitalWrite(RELAY_PIN, 'LOW')
     print ("++++        Done        ++++")
 
+def toggle_button():
+    print("++++ Simulating Button Press ++++")
+    testboard.digitalWrite(OUTPUT_PIN, 'LOW') # Simulate Button press
+    time.sleep(1)
+    testboard.digitalWrite(OUTPUT_PIN, 'HIGH') # And release the button
+    print("++++           Done          ++++")
+
 def testDevice():
     turn_device_on()
     time.sleep(15) # Wait for the lamp to connect to the Wifi
@@ -79,6 +86,18 @@ def testDevice():
     assert testboard.analogRead(INPUT_PIN_WHITE) < 1000	# White LED should be OFF
 
     set_lamp_color("000000ff") # Make the lamp White
+    assert testboard.analogRead(INPUT_PIN_RED) < 1000	# Red LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_GREEN) < 1000	# Green LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_BLUE) < 1000	# Blue LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_WHITE) > 3000	# White LED should be ON
+
+    toggle_button() # Pressing the button. All LEDs should now be OFF
+    assert testboard.analogRead(INPUT_PIN_RED) < 1000	# Red LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_GREEN) < 1000	# Green LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_BLUE) < 1000	# Blue LED should be OFF
+    assert testboard.analogRead(INPUT_PIN_WHITE) < 1000	# White LED should be OFF
+
+    toggle_button()  # The lamp should now return to being WHITE
     assert testboard.analogRead(INPUT_PIN_RED) < 1000	# Red LED should be OFF
     assert testboard.analogRead(INPUT_PIN_GREEN) < 1000	# Green LED should be OFF
     assert testboard.analogRead(INPUT_PIN_BLUE) < 1000	# Blue LED should be OFF
