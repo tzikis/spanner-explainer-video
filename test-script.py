@@ -11,6 +11,7 @@ from random import randint
 
 testboard = SpannerTestboard("Testboard1")
 device_id = os.environ['device_id']
+particle_token = os.environ['particle_token']
 
 OUTPUT_PIN = "D3"
 
@@ -28,7 +29,7 @@ def send_cmd(command, value):
     resource_uri = API_PATH + device_id + '/' + command
 
     conn = http.client.HTTPSConnection(BASE_URL)
-    headers = {'Authorization': 'Bearer ' + self.token, "Content-type": "application/x-www-form-urlencoded"}
+    headers = {'Authorization': 'Bearer ' + particle_token, "Content-type": "application/x-www-form-urlencoded"}
     params = urllib.parse.urlencode({'@arg': value})
     conn.request('POST', resource_uri, params, headers)
 
