@@ -57,10 +57,10 @@ def turn_device_off():
 
 def testDevice():
     turn_device_on()
-    time.sleep(15) // Wait for the device to connect to the Wifi
-    set_lamp_color("ff000000") //Make the lamp Red
-    set_lamp_color("00ff0000") //Make the lamp Blue
-    set_lamp_color("0000ff00") //Make the lamp Green
-    set_lamp_color("000000ff") //Make the lamp White
+    time.sleep(15) # Wait for the device to connect to the Wifi
+    set_lamp_color("ff000000") # Make the lamp Red
+    set_lamp_color("00ff0000") # Make the lamp Blue
+    set_lamp_color("0000ff00") # Make the lamp Green
+    set_lamp_color("000000ff") # Make the lamp White
     turn_device_off()
     assert True
